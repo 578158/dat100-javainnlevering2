@@ -4,47 +4,82 @@ public class Matriser {
 
 	// a)
 	public static void skrivUt(int[][] matrise) {
-		
-		// TODO
-		throw new UnsupportedOperationException("skrivUt ikke implementert");
+		for(int[] array: matrise) {
+			for(int i: array) {
+				System.out.print(i + " ");
+			}
+			System.out.println("");
+		}
 	}
 
 	// b)
 	public static String tilStreng(int[][] matrise) {
-
-		// TODO
-		throw new UnsupportedOperationException("tilStreng ikke implementert");
+		String s = "";
+		for(int[] array: matrise) {
+			for(int i: array) {
+				s += i + " ";
+			}
+			s += "\n";
+		}
 		
+		return s;
 	}
 
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
-		
-		// TODO
-		throw new UnsupportedOperationException("skaler ikke implementert");
-	
+		int[][] m = new int[matrise.length][];
+		for(int i = 0; i < matrise.length; i++) {
+			m = new int[matrise.length][matrise[i].length];
+		}
+		for(int i = 0; i < matrise.length; i++) {
+			for(int j = 0; j < matrise[i].length; j++) {
+				m[i][j] = matrise[i][j] * tall;
+			}
+		}
+		return m;
 	}
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
-
-		// TODO
-		throw new UnsupportedOperationException("erLik ikke implementert");
+		try {
+			for(int i = 0; i < a.length; i++) {
+				for(int j = 0; j < a[i].length; j++){
+					if(a[i][j] != b[i][j]) return false;
+				}
+			}
+		}
+		catch(Exception e){
+			return false;
+		}
+		
+		return true;
 	}
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
-
-		// TODO
-		throw new UnsupportedOperationException("speile ikke implementert");
-	
+		int[][] m = new int[matrise[0].length][matrise.length];
+		for(int i = 0; i < m.length; i++) {
+			for(int j = 0; j < m[i].length; j++) {
+				m[i][j] = matrise[j][i];
+			}
+		}
+		return m;
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
-
-		// TODO
-		throw new UnsupportedOperationException("multipliser ikke implementert");
+		int [][] m = new int[a.length][b[0].length];
+		b = speile(b);
+		 
+		for(int i = 0; i < m.length; i++) {
+			for(int j = 0; j < m[i].length; j++) {
+				for(int x = 0; x < a[i].length; x++) {
+					m[i][j] += a[i][x] * b[j][x];
+				}
+			}
+		}
+		
+		return m;
 	
 	}
 }
