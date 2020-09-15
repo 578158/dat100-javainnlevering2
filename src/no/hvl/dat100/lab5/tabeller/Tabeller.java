@@ -28,36 +28,29 @@ public class Tabeller {
 	}
 
 	// c)
-	public static int summer(int[] tabell/*, char type*/) { //La inn en måte som jeg kunne velge hvilken måte jeg ville bruke
+	public static int summer(int[] tabell) { //Denne metoden bruker for each
 		int sum = 0;
 		for(int tall: tabell) sum += tall;
-		/*Alt som ser ut som kode, men er "kommenter" er hvis du vil kunne velge mellom forskejllige metoder for å regen ut
-		 * switch (type){
-			case 'w':
-				{int i = 0;
-				while(i < tabell.length) {
-					sum += tabell[i];
-					i++;
-				}}
-				System.out.println(sum);
-				sum = 0;
-				break;
-			case 'f':
-				for(int i= 0; i < tabell.length; i++) sum += tabell[i];
-				System.out.println(sum);
-				sum = 0;	
-				break;
-			default:
-				for(int tall: tabell) sum += tall;
-				System.out.println(sum);
-				sum = 0;
-		}*/
+		return sum;
+	}
+	
+	public static int summer1(int[] tabell) { //Denne metoden bruker while
+		int sum = 0;
+		int i = 0;
+		while(i < tabell.length) {
+			sum += tabell[i];
+			i++;
+		}
+		return sum;
+	}
+	public static int summer2(int[] tabell) { //Denne metoden bruker for
+		int sum = 0;
+		for(int i= 0; i < tabell.length; i++) sum += tabell[i];
 		return sum;
 	}
 
 	// d)
-	public static boolean finnesTall(int[] tabell, int tall) {
-		
+	public static boolean finnesTall(int[] tabell, int tall) { 
 		for(int i = 0; i < tabell.length; i++) {
 			if (tabell[i] == tall) return true;
 		}

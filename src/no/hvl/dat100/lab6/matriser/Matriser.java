@@ -41,23 +41,24 @@ public class Matriser {
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
-		try {
-			for(int i = 0; i < a.length; i++) {
-				for(int j = 0; j < a[i].length; j++){
-					if(a[i][j] != b[i][j]) return false;
-				}
-			}
-		}
-		catch(Exception e){
-			return false;
+		//If og for løkken sjekker om matrisene er like store
+		if(a.length != b.length) return false;
+		for (int i = 0; i < a.length; i++) {
+			if(a[i].length != b[i].length) return false;
 		}
 		
-		return true;
+		//Disse for løkkene sjekker om innholder er likt
+		for(int i = 0; i < a.length; i++) {
+			for(int j = 0; j < a[i].length; j++){
+				if(a[i][j] != b[i][j]) return false;
+			}
+		}		
+		return true; //Hvis alt går bra og alle verdier er helt like returnerer jeg true
 	}
 	
 	// e)
-	public static int[][] speile(int[][] matrise) {
-		int[][] m = new int[matrise[0].length][matrise.length];
+	public static int[][] speile(int[][] matrise) {				//Denne metoden kan gi en error hvis matrisene ikke er rektangulære
+		int[][] m = new int[matrise[0].length][matrise.length];	
 		for(int i = 0; i < m.length; i++) {
 			for(int j = 0; j < m[i].length; j++) {
 				m[i][j] = matrise[j][i];
@@ -69,7 +70,7 @@ public class Matriser {
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 		int [][] m = new int[a.length][b[0].length];
-		b = speile(b);
+		b = speile(b); //Her bruker jeg den tidligere metoden "speile" for å flippe om på b for å senere bruke den, det blir da enkelere å jobbe med den
 		 
 		for(int i = 0; i < m.length; i++) {
 			for(int j = 0; j < m[i].length; j++) {
