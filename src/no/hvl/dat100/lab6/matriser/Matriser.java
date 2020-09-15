@@ -6,6 +6,8 @@ public class Matriser {
 	public static void skrivUt(int[][] matrise) {
 		for(int[] array: matrise) {
 			for(int i: array) {
+				if(i < 100) System.out.print(" ");
+				if(i < 10) System.out.print(" ");
 				System.out.print(i + " ");
 			}
 			System.out.println("");
@@ -57,7 +59,7 @@ public class Matriser {
 	}
 	
 	// e)
-	public static int[][] speile(int[][] matrise) {				//Denne metoden kan gi en error hvis matrisene ikke er rektangulære
+	public static int[][] speile(int[][] matrise) {				//Denne metoden kan bruke reaktang gi en error hvis matrisene ikke er rektangulære
 		int[][] m = new int[matrise[0].length][matrise.length];	
 		for(int i = 0; i < m.length; i++) {
 			for(int j = 0; j < m[i].length; j++) {
@@ -83,4 +85,5 @@ public class Matriser {
 		return m;
 	
 	}
+	
 }
